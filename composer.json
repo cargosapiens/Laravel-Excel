@@ -20,12 +20,12 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/cargosapiens/PHPExcel"
+      "url": "https://github.com/cargosapiens/PHPExcel.git"
     }
   ],
   "require": {
     "php": ">=5.5",
-    "phpoffice/phpexcel": "dev-master",
+    "phpoffice/phpexcel": "dev-cargosapiens",
     "illuminate/cache": "^5.0",
     "illuminate/config": "^5.0",
     "illuminate/filesystem": "^5.0",
