@@ -36,7 +36,6 @@ class ViewParser {
 
     /**
      * Construct the view parser
-     * @param Html $reader
      * @return \Maatwebsite\Excel\Parsers\ViewParser
      */
     public function __construct(Html $reader)

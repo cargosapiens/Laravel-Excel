@@ -255,10 +255,6 @@ class LaravelExcelReader
 
     /**
      * Construct new reader
-     *
-     * @param Filesystem       $filesystem
-     * @param FormatIdentifier $identifier
-     * @param Dispatcher       $dispatcher
      */
     public function __construct(Filesystem $filesystem, FormatIdentifier $identifier, Dispatcher $dispatcher)
     {
@@ -672,10 +668,9 @@ class LaravelExcelReader
      * Parse the file in chunks and queues the processing of each chunk
      *
      * @param int           $size
-     * @param callable      $callback
      * @param bool|string   $shouldQueue
      */
-    public function chunk($size = 10, callable $callback, $shouldQueue = true)
+    public function chunk(callable $callback, $size = 10, $shouldQueue = true)
     {
         // Get total rows
         $totalRows = $this->getTotalRowsOfFile();
@@ -696,11 +691,11 @@ class LaravelExcelReader
 
             $job = new ChunkedReadJob(
                 $this->file,
-                $this->reader->getLoadSheetsOnly(),
                 $startRow,
                 $startIndex,
                 $chunkSize,
                 $callback,
+                $this->reader->getLoadSheetsOnly(),
                 $shouldQueue,
                 $encoding
             );

@@ -26,7 +26,6 @@ class FormatIdentifier {
 
     /**
      * Construct new format identifier
-     * @param Filesystem $filesystem
      */
     public function __construct(Filesystem $filesystem)
     {

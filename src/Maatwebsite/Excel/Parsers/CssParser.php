@@ -36,7 +36,6 @@ class CssParser {
 
     /**
      * Construct the css parser
-     * @param CssToInlineStyles $cssInliner
      */
     public function __construct(CssToInlineStyles $cssInliner)
     {
@@ -61,7 +60,6 @@ class CssParser {
 
     /**
      * Find the stylesheets inside the view
-     * @param DOMDocument $dom
      * @return CssParser
      */
     public function findStyleSheets(DOMDocument $dom)

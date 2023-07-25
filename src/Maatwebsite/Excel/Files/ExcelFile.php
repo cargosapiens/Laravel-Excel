@@ -70,7 +70,7 @@ abstract class ExcelFile extends File {
     public function handleImport()
     {
         return $this->handle(
-            get_class($this)
+            static::class
         );
     }
 

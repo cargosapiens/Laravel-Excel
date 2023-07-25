@@ -31,7 +31,6 @@ class CellWriter
     /**
      * Constructor
      * @param array                 $cells
-     * @param LaravelExcelWorksheet $sheet
      */
     public function __construct($cells, LaravelExcelWorksheet $sheet)
     {

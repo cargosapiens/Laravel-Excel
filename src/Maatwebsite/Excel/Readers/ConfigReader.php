@@ -45,7 +45,6 @@ class ConfigReader {
 
     /**
      * Constructor
-     * @param PHPExcel $excel
      * @param string   $config
      * @param callback $callback
      */

@@ -59,17 +59,16 @@ class ChunkedReadJob implements ShouldQueue
      * @param int         $startRow
      * @param             $startIndex
      * @param             $chunkSize
-     * @param callable    $callback
      * @param bool        $shouldQueue
      * @param string|null $encoding
      */
     public function __construct(
         $file,
-        $sheets = null,
         $startRow,
         $startIndex,
         $chunkSize,
         callable $callback,
+        $sheets = null,
         $shouldQueue = true,
         $encoding = null
     ) {

@@ -108,9 +108,7 @@ class LaravelExcelWriter {
 
     /**
      * Construct writer
-     * @param Response         $response
      * @param FileSystem       $filesystem
-     * @param FormatIdentifier $identifier
      */
     public function __construct(Response $response, FileSystem $filesystem, FormatIdentifier $identifier)
     {
@@ -251,7 +249,6 @@ class LaravelExcelWriter {
 
     /**
      * Set data for the current sheet
-     * @param  array $array
      * @return  LaravelExcelWriter
      */
     public function with(Array $array)
@@ -265,7 +262,6 @@ class LaravelExcelWriter {
     /**
      * Export the spreadsheet
      * @param string $ext
-     * @param array  $headers
      * @throws LaravelExcelException
      */
     public function export($ext = 'xls', Array $headers = [])
@@ -297,7 +293,6 @@ class LaravelExcelWriter {
     /**
      * Convert and existing file to newly requested extension
      * @param       $ext
-     * @param array $headers
      */
     public function convert($ext, Array $headers = [])
     {
@@ -307,7 +302,6 @@ class LaravelExcelWriter {
     /**
      * Export and download the spreadsheet
      * @param  string $ext
-     * @param array   $headers
      */
     public function download($ext = 'xls', Array $headers = [])
     {
@@ -342,7 +336,6 @@ class LaravelExcelWriter {
 
     /**
      * Download a file
-     * @param array $headers
      * @throws LaravelExcelException
      */
     protected function _download(Array $headers = [])
@@ -355,7 +348,6 @@ class LaravelExcelWriter {
         }
         // Set the headers
         $this->_setHeaders(
-            $headers,
             [
                 'Content-Type'        => $this->contentType,
                 'Content-Disposition' => 'attachment; filename="' . $filename . '.' . $this->ext . '"',
@@ -363,7 +355,8 @@ class LaravelExcelWriter {
                 'Last-Modified'       => Carbon::now()->format('D, d M Y H:i:s'),
                 'Cache-Control'       => 'cache, must-revalidate',
                 'Pragma'              => 'public'
-            ]
+            ],
+            $headers
         );
 
         // Check if writer isset
@@ -628,7 +621,7 @@ class LaravelExcelWriter {
      * @param $headers
      * @throws LaravelExcelException
      */
-    protected function _setHeaders(Array $headers = [], Array $default)
+    protected function _setHeaders(Array $default, Array $headers = [])
     {
         if (headers_sent()) throw new LaravelExcelException('[ERROR]: Headers already sent');
 

@@ -94,7 +94,7 @@ class PHPExcel extends PHPOffice_PHPExcel {
     function cloneParent(\PHPExcel $object)
     {
         // Init new reflection object
-        $class = new \ReflectionClass(get_class($object));
+        $class = new \ReflectionClass($object::class);
 
         // Loop through all properties
         foreach($class->getProperties() as $property)

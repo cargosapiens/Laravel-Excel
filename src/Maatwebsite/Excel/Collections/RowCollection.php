@@ -30,7 +30,6 @@ class RowCollection extends ExcelCollection {
 
     /**
      * Set the heading
-     * @param array $heading
      */
     public function setHeading(array $heading)
     {

@@ -41,9 +41,7 @@ class Batch {
 
     /**
      * Start the Batach
-     * @param  Excel   $excel
      * @param  array   $files
-     * @param  Closure $callback
      * @return Excel
      */
     public function start(Excel $excel, $files, Closure $callback)

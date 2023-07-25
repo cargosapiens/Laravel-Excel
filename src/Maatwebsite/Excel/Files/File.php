@@ -78,7 +78,7 @@ abstract class File {
     protected function getHandlerClassName($type)
     {
         // Translate the file into a FileHandler
-        $class = get_class($this);
+        $class = static::class;
         $handler = substr_replace($class, $type . 'Handler', strrpos($class, (string) $type));
 
         // Check if the handler exists

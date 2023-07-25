@@ -1194,13 +1194,12 @@ class LaravelExcelWorksheet extends PHPExcel_Worksheet {
 
     /**
      * load info from parent obj
-     * @param \PHPExcel_Worksheet $sheet
      * @return $this
      */
     function cloneParent(PHPExcel_Worksheet $sheet)
     {
         // Init new reflection object
-        $class = new \ReflectionClass(get_class($sheet));
+        $class = new \ReflectionClass($sheet::class);
 
         // Loop through all properties
         foreach($class->getProperties() as $property)

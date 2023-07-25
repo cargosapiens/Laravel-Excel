@@ -49,9 +49,6 @@ class Excel {
 
     /**
      * Construct Excel
-     * @param  PHPExcel           $excel
-     * @param  LaravelExcelReader $reader
-     * @param  LaravelExcelWriter $writer
      */
     public function __construct(PHPExcel $excel, LaravelExcelReader $reader, LaravelExcelWriter $writer)
     {

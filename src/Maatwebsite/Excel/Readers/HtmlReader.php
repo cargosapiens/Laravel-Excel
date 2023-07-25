@@ -133,7 +133,6 @@ class Html extends PHPExcel_Reader_HTML {
      * Loads HTML from file into sheet instance
      *
      * @param   string                $pFilename
-     * @param   LaravelExcelWorksheet $sheet
      * @param   boolean               $isString
      * @return  LaravelExcelWorksheet
      * @throws  PHPExcel_Reader_Exception
@@ -245,7 +244,6 @@ class Html extends PHPExcel_Reader_HTML {
 
     /**
      * Process the dom element
-     * @param  DOMNode               $element
      * @param  LaravelExcelWorksheet $sheet
      * @param  string                $row
      * @param  integer               $column
@@ -1266,68 +1264,23 @@ class Html extends PHPExcel_Reader_HTML {
      */
     public function borderStyle($style)
     {
-        switch ($style)
-        {
-            case 'solid';
-                return PHPExcel_Style_Border::BORDER_THIN;
-                break;
-
-            case 'dashed':
-                return PHPExcel_Style_Border::BORDER_DASHED;
-                break;
-
-            case 'dotted':
-                return PHPExcel_Style_Border::BORDER_DOTTED;
-                break;
-
-            case 'medium':
-                return PHPExcel_Style_Border::BORDER_MEDIUM;
-                break;
-
-            case 'thick':
-                return PHPExcel_Style_Border::BORDER_THICK;
-                break;
-
-            case 'none':
-                return PHPExcel_Style_Border::BORDER_NONE;
-                break;
-
-            case 'dash-dot':
-                return PHPExcel_Style_Border::BORDER_DASHDOT;
-                break;
-
-            case 'dash-dot-dot':
-                return PHPExcel_Style_Border::BORDER_DASHDOTDOT;
-                break;
-
-            case 'double':
-                return PHPExcel_Style_Border::BORDER_DOUBLE;
-                break;
-
-            case 'hair':
-                return PHPExcel_Style_Border::BORDER_HAIR;
-                break;
-
-            case 'medium-dash-dot':
-                return PHPExcel_Style_Border::BORDER_MEDIUMDASHDOT;
-                break;
-
-            case 'medium-dash-dot-dot':
-                return PHPExcel_Style_Border::BORDER_MEDIUMDASHDOTDOT;
-                break;
-
-            case 'medium-dashed':
-                return PHPExcel_Style_Border::BORDER_MEDIUMDASHED;
-                break;
-
-            case 'slant-dash-dot':
-                return PHPExcel_Style_Border::BORDER_SLANTDASHDOT;
-                break;
-
-            default:
-                return '';
-                break;
-        }
+        return match ($style) {
+            'solid' => PHPExcel_Style_Border::BORDER_THIN,
+            'dashed' => PHPExcel_Style_Border::BORDER_DASHED,
+            'dotted' => PHPExcel_Style_Border::BORDER_DOTTED,
+            'medium' => PHPExcel_Style_Border::BORDER_MEDIUM,
+            'thick' => PHPExcel_Style_Border::BORDER_THICK,
+            'none' => PHPExcel_Style_Border::BORDER_NONE,
+            'dash-dot' => PHPExcel_Style_Border::BORDER_DASHDOT,
+            'dash-dot-dot' => PHPExcel_Style_Border::BORDER_DASHDOTDOT,
+            'double' => PHPExcel_Style_Border::BORDER_DOUBLE,
+            'hair' => PHPExcel_Style_Border::BORDER_HAIR,
+            'medium-dash-dot' => PHPExcel_Style_Border::BORDER_MEDIUMDASHDOT,
+            'medium-dash-dot-dot' => PHPExcel_Style_Border::BORDER_MEDIUMDASHDOTDOT,
+            'medium-dashed' => PHPExcel_Style_Border::BORDER_MEDIUMDASHED,
+            'slant-dash-dot' => PHPExcel_Style_Border::BORDER_SLANTDASHDOT,
+            default => '',
+        };
     }
 
     /**
