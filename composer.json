@@ -26,10 +26,10 @@
   "require": {
     "php": ">=7.2",
     "phpoffice/phpexcel": "dev-cargosapiens",
-    "illuminate/cache": "^6.0",
-    "illuminate/config": "^6.0",
-    "illuminate/filesystem": "^6.0",
-    "illuminate/support": "^6.0",
+    "illuminate/cache": "^7.0",
+    "illuminate/config": "^7.0",
+    "illuminate/filesystem": "^7.0",
+    "illuminate/support": "^7.0",
     "jeremeamia/superclosure": "^2.3",
     "nesbot/carbon": "^2.0",
     "tijsverkoyen/css-to-inline-styles": "~2.0"
@@ -38,13 +38,13 @@
     "phpseclib/phpseclib": "~1.0",
     "phpunit/phpunit": "^8.0",
     "mockery/mockery": "~1.0",
-    "orchestra/testbench": "4.*"
+    "orchestra/testbench": "5.*"
   },
   "suggest": {
-    "illuminate/http": "^6.0",
-    "illuminate/routing": "^6.0",
-    "illuminate/view": "^6.0",
-    "illuminate/queue": "^6.0"
+    "illuminate/http": "^7.0",
+    "illuminate/routing": "^7.0",
+    "illuminate/view": "^7.0",
+    "illuminate/queue": "^7.0"
   },
   "autoload": {
     "classmap": [
