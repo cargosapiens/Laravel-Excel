@@ -25,7 +25,7 @@
   ],
   "require": {
     "php": ">=7.3",
-    "phpoffice/phpexcel": "dev-cargosapiens",
+    "phpoffice/phpexcel": "1.8.3",
     "illuminate/cache": "^8.0",
     "illuminate/config": "^8.0",
     "illuminate/filesystem": "^8.0",
