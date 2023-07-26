@@ -885,7 +885,7 @@ class LaravelExcelReader
      */
     public function setTitle($title = false)
     {
-        $this->title = $title ? $title : basename($this->file, '.' . $this->ext);
+        $this->title = $title ?: basename($this->file, '.' . $this->ext);
 
         return $this;
     }
@@ -899,7 +899,7 @@ class LaravelExcelReader
      */
     public function setExtension($ext = false)
     {
-        $this->ext = $ext ? $ext : $this->filesystem->extension($this->file);
+        $this->ext = $ext ?: $this->filesystem->extension($this->file);
 
         return $this;
     }
@@ -1412,7 +1412,7 @@ class LaravelExcelReader
     {
         if ($this->format == 'CSV') {
             // If no encoding was given, use the config value
-            $encoding = $encoding ? $encoding : config('excel.import.encoding.input', 'UTF-8');
+            $encoding = $encoding ?: config('excel.import.encoding.input', 'UTF-8');
             $this->reader->setInputEncoding($encoding);
         }
 

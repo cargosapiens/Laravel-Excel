@@ -79,7 +79,7 @@ class Html extends PHPExcel_Reader_HTML {
     /**
      * @var
      */
-    private $cssParser;
+    private readonly \Maatwebsite\Excel\Parsers\CssParser $cssParser;
 
     /**
      * @param CssParser $cssParser
@@ -107,7 +107,7 @@ class Html extends PHPExcel_Reader_HTML {
         if ( $obj instanceof PHPExcel )
         {
             // Load into this instance
-            return $this->loadIntoExisting($pFilename, $obj, $isString);
+            return $this->loadIntoExisting($pFilename, $obj);
         }
         elseif ( $obj instanceof LaravelExcelWorksheet )
         {
@@ -115,9 +115,9 @@ class Html extends PHPExcel_Reader_HTML {
             return $this->loadIntoExistingSheet($pFilename, $obj, $isString);
         }
 
-        $objPHPExcel = $obj ? $obj : new PHPExcel();
+        $objPHPExcel = $obj ?: new PHPExcel();
 
-        return $this->loadIntoExisting($pFilename, $objPHPExcel, $isString);
+        return $this->loadIntoExisting($pFilename, $objPHPExcel);
     }
 
     /**
@@ -685,7 +685,7 @@ class Html extends PHPExcel_Reader_HTML {
     protected function flushCell($sheet, $column, $row, &$cellContent)
     {
         // Process merged cells
-        list($column, $cellContent) = $this->processMergedCells($sheet, $column, $row, $cellContent);
+        [$column, $cellContent] = $this->processMergedCells($sheet, $column, $row, $cellContent);
 
         if ( is_string($cellContent) )
         {

@@ -155,7 +155,7 @@ class ExcelWriterTest extends TestCase {
         foreach($properties as $prop)
         {
             // Set a random value
-            $originalValue = rand();
+            $originalValue = random_int(0, mt_getrandmax());
 
             // Set needed set/get methods
             $method     = 'set' . ucfirst($prop);

@@ -74,9 +74,8 @@ class LaravelExcelWriter {
 
     /**
      * Valid file extensions.
-     * @var array
      */
-    private $validExtensions = [
+    private array $validExtensions = [
         'xlsx', 'xlsm', 'xltx', 'xltm', //Excel 2007
         'xls', 'xlt', //Excel5
         'ods', 'ots', //OOCalc
@@ -221,7 +220,7 @@ class LaravelExcelWriter {
     public function sheet($title, $callback = null)
     {
         // Clone the active sheet
-        $this->sheet = $this->excel->createSheet(null, $title);
+        $this->sheet = $this->excel->createSheet(null);
 
         // If a parser was set, inject it
         if ($this->parser)
@@ -341,7 +340,7 @@ class LaravelExcelWriter {
     protected function _download(Array $headers = [])
     {
         $filename = $this->filename;
-        $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
         // Just for Microsoft Explore
         if (preg_match('/Trident|Edge/i', $userAgent)) {
             $filename = rawurlencode($filename);
@@ -419,7 +418,7 @@ class LaravelExcelWriter {
      */
     public function returnInfo($returnInfo = false)
     {
-        return $returnInfo ? $returnInfo : config('excel.export.store.returnInfo', false);
+        return $returnInfo ?: config('excel.export.store.returnInfo', false);
     }
 
     /**
@@ -642,7 +641,7 @@ class LaravelExcelWriter {
     protected function _setStoragePath($path = false)
     {
         // Get the default path
-        $path = $path ? $path : config('excel.export.store.path', storage_path($this->storagePath));
+        $path = $path ?: config('excel.export.store.path', storage_path($this->storagePath));
 
         // Trim of slashes, to makes sure we won't add them double
         $this->storagePath = rtrim($path, DIRECTORY_SEPARATOR);
@@ -689,7 +688,7 @@ class LaravelExcelWriter {
             // Call the method from the excel object with the given params
             $return = call_user_func_array([$this->excel, $method], $params);
 
-            return $return ? $return : $this;
+            return $return ?: $this;
         }
 
         throw new LaravelExcelException('[ERROR] Writer method [' . $method . '] does not exist.');

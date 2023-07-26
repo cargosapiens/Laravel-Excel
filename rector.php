@@ -14,7 +14,7 @@ return static function (RectorConfig $rectorConfig): void {
     // Parallel
     $rectorConfig->parallel(3600,
         16,
-        20);
+        50);
 
     // >= 8.1
     $rectorConfig->sets([

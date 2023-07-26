@@ -265,9 +265,7 @@ class ExcelParser {
             {
                 // increase +1
                 $index = preg_replace_callback( "/(\d+)$/",
-                    function ($matches) {
-                        return ++$matches[1];
-                    }, $index);
+                    fn($matches) => ++$matches[1], $index);
             }
             else
             {
@@ -367,7 +365,7 @@ class ExcelParser {
 
         try {
             $rows = $this->worksheet->getRowIterator($startRow);
-        } catch(PHPExcel_Exception $e) {
+        } catch(PHPExcel_Exception) {
             $rows = [];
         }
 
@@ -432,7 +430,7 @@ class ExcelParser {
      */
     protected function parseCells()
     {
-        $parsedCells = array();
+        $parsedCells = [];
 
         // Skip the columns when needed
         $startColumn = $this->reader->getTargetSkipColumns();
@@ -542,7 +540,7 @@ class ExcelParser {
     protected function encode($value)
     {
         // Get input and output encoding
-        list($input, $output) = array_values(config('excel.import.encoding', array('UTF-8', 'UTF-8')));
+        [$input, $output] = array_values(config('excel.import.encoding', ['UTF-8', 'UTF-8']));
 
         // If they are the same, return the value
         if ( $input == $output )
@@ -585,7 +583,7 @@ class ExcelParser {
                 // Convert excel time to php date object
                 $date = PHPExcel_Shared_Date::ExcelToPHPObject($this->cell->getCalculatedValue())->format('Y-m-d H:i:s');
             }
-            catch( \ErrorException $ex )
+            catch( \ErrorException )
             {
                 return null ;
             }
@@ -657,7 +655,7 @@ class ExcelParser {
      * Set selected columns
      * @param array $columns
      */
-    protected function setSelectedColumns($columns = array())
+    protected function setSelectedColumns($columns = [])
     {
         // Set the columns
         $this->columns = $columns;

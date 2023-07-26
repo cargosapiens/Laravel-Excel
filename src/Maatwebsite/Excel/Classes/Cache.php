@@ -31,9 +31,8 @@ class Cache {
 
     /**
      * The name of the config file
-     * @var string
      */
-    private $configName = 'excel.cache';
+    private string $configName = 'excel.cache';
 
     /**
      * Cache constructor
@@ -82,7 +81,7 @@ class Cache {
         $this->addAdditionalSettings();
 
         // return the driver
-        return isset($this->available[$this->driver]) ? $this->available[$this->driver] : reset($this->available);
+        return $this->available[$this->driver] ?? reset($this->available);
     }
 
     /**

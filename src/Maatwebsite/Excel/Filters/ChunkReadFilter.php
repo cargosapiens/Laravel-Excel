@@ -6,15 +6,13 @@ class ChunkReadFilter implements PHPExcel_Reader_IReadFilter
 {
     /**
      * Start row
-     * @var integer
      */
-    private $_startRow = 0;
+    private int $_startRow = 0;
 
     /**
      * End row
-     * @var integer
      */
-    private $_endRow = 0;
+    private int $_endRow = 0;
 
     /**
      * Set the list of rows that we want to read

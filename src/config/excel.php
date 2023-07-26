@@ -1,7 +1,6 @@
 <?php
 
-return array(
-
+return [
     'cache'      => [
 
         /*
@@ -56,7 +55,6 @@ return array(
 
         'dir'      => storage_path('cache')
     ],
-
     'properties' => [
         'creator'        => 'Maatwebsite',
         'lastModifiedBy' => 'Maatwebsite',
@@ -68,7 +66,6 @@ return array(
         'manager'        => 'Maatwebsite',
         'company'        => 'Maatwebsite',
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Sheets settings
@@ -96,7 +93,6 @@ return array(
             'firstPageNumber'       => null,
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Creator
@@ -105,9 +101,7 @@ return array(
     | The default creator of a new Excel file
     |
     */
-
     'creator'    => 'Maatwebsite',
-
     'csv'        => [
         /*
        |--------------------------------------------------------------------------
@@ -144,7 +138,6 @@ return array(
 
         'use_bom' => false
     ],
-
     'export'     => [
 
         /*
@@ -337,7 +330,6 @@ return array(
             ]
         ]
     ],
-
     'filters'    => [
         /*
         |--------------------------------------------------------------------------
@@ -346,7 +338,7 @@ return array(
         */
 
         'registered' => [
-            'chunk' => 'Maatwebsite\Excel\Filters\ChunkReadFilter'
+            'chunk' => \Maatwebsite\Excel\Filters\ChunkReadFilter::class
         ],
 
         /*
@@ -357,7 +349,6 @@ return array(
 
         'enabled'    => []
     ],
-
     'import'     => [
 
         /*
@@ -538,7 +529,6 @@ return array(
 
         ]
     ],
-
     'views'      => [
 
         /*
@@ -699,6 +689,5 @@ return array(
             ]
         ]
 
-    ]
-
-);
+    ],
+];
