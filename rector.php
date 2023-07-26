@@ -16,8 +16,8 @@ return static function (RectorConfig $rectorConfig): void {
         16,
         20);
 
-    // >= 8.0
+    // >= 8.1
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_80
+        LevelSetList::UP_TO_PHP_81
     ]);
 };

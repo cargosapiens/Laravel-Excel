@@ -200,7 +200,7 @@ class LaravelExcelWriter {
      */
     public function setView()
     {
-        return call_user_func_array([$this, 'shareView'], func_get_args());
+        return call_user_func_array($this->shareView(...), func_get_args());
     }
 
     /**
@@ -209,7 +209,7 @@ class LaravelExcelWriter {
      */
     public function loadView()
     {
-        return call_user_func_array([$this, 'shareView'], func_get_args());
+        return call_user_func_array($this->shareView(...), func_get_args());
     }
 
     /**
